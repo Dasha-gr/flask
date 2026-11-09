@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Наши услуги</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/about">О нас</a>
+        <a href="/services">Услуги</a>
+        <a href="/portfolio">Портфолио</a>
+        <a href="/contact">Контакты</a>
+        <a href="/admin">Админка</a>
+    </nav>
+
+    <div class="container container-wide">
+        <h1>Наши услуги</h1>
+        <p>Полный спектр цифровых решений для вашего бизнеса.</p>
+
+        <div class="services-grid">
+            {% for s in items %}
+            <div class="service-card">
+                <!-- s[1] - это НАЗВАНИЕ -->
+                <h3>{{ s[1] }}</h3>
+
+                <!-- s[2] - это ОПИСАНИЕ -->
+                <p>{{ s[2] or 'Описание пока не добавлено.' }}</p>
+
+                <!-- s[3] - это ЦЕНА -->
+                {% if s[3] %}
+                    <span class="service-price">{{ s[3] }} руб.</span>
+                {% endif %}
+            </div>
+            {% else %}
+            <p>Услуг пока нет. Добавьте их в <a href="/admin">админке</a>.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

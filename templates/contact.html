@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Контакты{% endblock %}
+{% block content %}
+<div class="container container-wide">
+    <h1>Свяжитесь с нами</h1>
+    <p>Есть вопрос или хотите заказать услугу? Напишите нам — ответим в течение дня.</p>
+
+    <div class="contact-grid">
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="icon">📍</div>
+                <div>
+                    <h4>Адрес</h4>
+                    <p>г. Москва, ул. Примерная, 10</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📞</div>
+                <div>
+                    <h4>Телефон</h4>
+                    <p>+7 (999) 123-45-67</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="icon">✉️</div>
+                <div>
+                    <h4>Email</h4>
+                    <p>info@example.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="icon">🕒</div>
+                <div>
+                    <h4>Режим работы</h4>
+                    <p>Пн–Пт: 9:00 – 18:00</p>
+                </div>
+            </div>
+
+            <div class="socials">
+                <a href="#" title="Telegram">✈️</a>
+                <a href="#" title="VK">💬</a>
+                <a href="#" title="WhatsApp">📱</a>
+            </div>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="email" name="email" placeholder="Ваш email" required>
+            <input type="text" name="subject" placeholder="Тема">
+            <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+            <button type="submit" class="btn">Отправить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

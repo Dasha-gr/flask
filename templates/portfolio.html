@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Портфолио{% endblock %}
+{% block content %}
+<div class="container container-wide">
+    <h1>Наши работы</h1>
+    <p>Несколько проектов, которыми мы гордимся.</p>
+
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <div class="portfolio-preview">🛍️</div>
+            <div class="portfolio-body">
+                <h3>Интернет-магазин</h3>
+                <p>Магазин одежды с корзиной и оплатой.</p>
+                <span class="portfolio-tag">E-commerce</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <div class="portfolio-preview">🏢</div>
+            <div class="portfolio-body">
+                <h3>Корпоративный сайт</h3>
+                <p>Сайт строительной компании.</p>
+                <span class="portfolio-tag">Корпоративный</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <div class="portfolio-preview">🍔</div>
+            <div class="portfolio-body">
+                <h3>Лендинг кафе</h3>
+                <p>Одностраничник с меню и формой заказа.</p>
+                <span class="portfolio-tag">Landing</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <div class="portfolio-preview">🎓</div>
+            <div class="portfolio-body">
+                <h3>Образовательная платформа</h3>
+                <p>Курсы онлайн с личным кабинетом.</p>
+                <span class="portfolio-tag">Web App</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

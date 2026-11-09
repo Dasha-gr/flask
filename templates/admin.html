@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление услугами</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="admin-wrapper" style="align-items: flex-start; padding-top: 30px;">
+        <div class="admin-card" style="max-width: 800px;">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="margin: 0;">⚙️ Управление услугами</h3>
+                <div style="font-size: 14px; color: #888;">
+                    Привет, <b>{{ session.admin_name }}</b> |
+                    <a href="/logout" style="color: #dc3545; text-decoration: none; font-weight: bold;">Выйти</a>
+                </div>
+            </div>
+
+            <form method="POST" action="/admin_panel" style="margin-bottom: 30px; background: #f7f8ff; padding: 20px; border-radius: 10px;">
+                <h4 style="margin-bottom: 15px; color: #2c2f4a;">Добавить новую услугу</h4>
+                <input type="text" name="title" placeholder="Название услуги" required>
+                <textarea name="description" placeholder="Описание услуги" style="min-height: 80px;"></textarea>
+                <input type="text" name="price" placeholder="Цена (например: от 30 000 ₽)">
+                <button type="submit" style="width: 100%; margin-top: 10px;">➕ Добавить услугу</button>
+            </form>
+
+            <h4 style="margin-bottom: 15px; color: #2c2f4a;">Список услуг на сайте</h4>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #f4f4f4;">
+                    <th>Название и описание</th>
+                    <th>Цена</th>
+                </tr>
+                {% for s in items %}
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td>
+                        <b>{{ s[1] }}</b><br>
+                        <small style="color:#888;">{{ s[2] or '—' }}</small>
+                    </td>
+                    <td><span style="background: #eef0ff; color: #667eea; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 600;">{{ s[3] or '—' }}</span></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="2" style="text-align:center; color:#999; padding:20px;">Услуг пока нет.</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>

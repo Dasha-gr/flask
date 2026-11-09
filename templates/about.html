@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}О нас{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>О нас</h1>
+    <div class="about-text">
+        <p>Мы — команда профессионалов, которая создаёт современные и удобные цифровые продукты. Наша цель — помогать бизнесу расти с помощью качественного веб-дизайна и технологий.</p>
+        <p>За годы работы мы реализовали десятки проектов: от небольших лендингов до крупных корпоративных платформ.</p>
+    </div>
+
+    <div class="about-features">
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Опыт</h3>
+            <p>Более 5 лет в веб-разработке и дизайне.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Скорость</h3>
+            <p>Сдаём проекты в срок без потери качества.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>Инновации</h3>
+            <p>Используем современные технологии и подходы.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3>Поддержка</h3>
+            <p>Всегда на связи после сдачи проекта.</p>
+        </div>
+    </div>
+
+    <a href="{{ url_for('contact') }}" class="btn">Связаться с нами</a>
+</div>
+{% endblock %}
