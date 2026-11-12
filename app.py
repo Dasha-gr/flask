@@ -103,6 +103,21 @@ def admin_panel():
 
     return render_template('admin.html', items=items)
 
+#Удаление услуг
+@app.route('/admin_panel/delete/<int:item_id>', methods=['POST'])
+def delete_service(item_id):
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('dosup'))
+
+    with db.cursor() as cur:
+        cur.execute("DELETE FROM myproj_service WHERE id=%s", (item_id,))
+    db.commit()
+
+    return redirect(url_for('admin_panel'))
+
+#Изменение услуг 
+
+
 
 @app.route('/logout')
 def logout():

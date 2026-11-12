@@ -30,6 +30,7 @@
                 <tr style="background: #f4f4f4;">
                     <th>Название и описание</th>
                     <th>Цена</th>
+                    <th style="width: 90px;">Действие</th>
                 </tr>
                 {% for s in items %}
                 <tr style="border-bottom: 1px solid #ddd;">
@@ -38,10 +39,19 @@
                         <small style="color:#888;">{{ s[2] or '—' }}</small>
                     </td>
                     <td><span style="background: #eef0ff; color: #667eea; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 600;">{{ s[3] or '—' }}</span></td>
+                    <td>
+                        <form action="{{ url_for('delete_service', item_id=s[0]) }}" method="post"
+                              onsubmit="return confirm('Удалить услугу «{{ s[1] }}»?');"
+                              style="margin: 0;">
+                            <button type="submit" style="background: #dc3545; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer;">
+                                🗑 Удалить
+                            </button>
+                        </form>
+                    </td>
                 </tr>
                 {% else %}
                 <tr>
-                    <td colspan="2" style="text-align:center; color:#999; padding:20px;">Услуг пока нет.</td>
+                    <td colspan="3" style="text-align:center; color:#999; padding:20px;">Услуг пока нет.</td>
                 </tr>
                 {% endfor %}
             </table>
