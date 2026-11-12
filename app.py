@@ -115,7 +115,28 @@ def delete_service(item_id):
 
     return redirect(url_for('admin_panel'))
 
-#Изменение услуг 
+#Изменение услуг
+@app.route('/admin_panel/update/<int:item_id>', methods=['POST'])
+def update_service(item_id):
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('dosup'))
+
+    title = request.form.get('title', '').strip()
+    description = request.form.get('description', '').strip()
+    price = request.form.get('price', '').strip()
+
+    if title:
+        with db.cursor() as cur:
+            cur.execute(
+                "UPDATE myproj_service SET title=%s, description=%s, price=%s WHERE id=%s",
+                (title, description, price, item_id)
+            )
+        db.commit()
+
+    return redirect(url_for('admin_panel'))
+
+
+
 
 
 
